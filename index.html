@@ -18,6 +18,17 @@
 
  </form>
  <script>
+//  <!-- <script type="text/javascript">
+    //  let myobj ={
+    //      username : 'ganeshchachriya',
+    //      emailID : 'g.chachriya11@gmail.com',
+    //      phoneNumber : '1234567890'
+    //  };
+    //  let myobj_serialized = JSON.stringify(myobj);
+    //  localStorage.setItem('myobj', myobj_serialized);
+    //  let myobj_deserialized = JSON.parse(localStorage.getItem('myobj'));
+    //  console.log(myobj_deserialized); -->
+
      function saveToLocalStorage(event){
          event.preventDefault();
          const name = event.target.username.value;
@@ -26,7 +37,11 @@
          localStorage.setItem('name', name);
          localStorage.setItem('email', email);
          localStorage.setItem('phoneNumber', phoneNumber);
-     }
+        const obj ={
+            name, email, phoneNumber
+        }
+        localStorage.setItem('userDetails', JSON.stringify(obj));
+   }
  </script>
 </body>
 </html>
