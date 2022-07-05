@@ -17,6 +17,7 @@
     <button>submit</button>
 
  </form>
+ <ui id="listOfUsers"></ui>
  <script>
 //  <!-- <script type="text/javascript">
     //  let myobj ={
@@ -34,13 +35,19 @@
          const name = event.target.username.value;
          const email = event.target.emailID.value;
          const phoneNumber = event.target.phoneNumber.value;
-         localStorage.setItem('name', name);
-         localStorage.setItem('email', email);
-         localStorage.setItem('phoneNumber', phoneNumber);
+        //  localStorage.setItem('name', name);
+        //  localStorage.setItem('email', email);
+        //  localStorage.setItem('phoneNumber', phoneNumber);
         const obj ={
             name, email, phoneNumber
         }
-        localStorage.setItem('userDetails', JSON.stringify(obj));
+        localStorage.setItem(obj.email, JSON.stringify(obj));
+        showNewUserOnScreen(obj)
+   }
+   function showNewUserOnScreen(user){
+       const parentNode = document.getElementById('listOfUsers');
+       const childHTML = `<li> ${user.name} - ${user.email}</li>`
+       parentNode.innerHTML = parentNode.innerHTML + childHTML;
    }
  </script>
 </body>
